@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PROYECTO FINAL</string>
+    <string name="app_name">My app</string>
+    <string name="titlebox">Title</string>
+    <string name="description">Description</string>
+    <string name="date">Date</string>
+    <string name="add_task">Add task</string>
 </resources>

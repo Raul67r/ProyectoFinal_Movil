@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -50,8 +51,12 @@ android {
 }
 
 dependencies {
-    implementation("androidx.navigation:navigation-compose:2.8.2")
-    implementation("androidx.compose.material:material:1.7.1")
+    implementation ("androidx.navigation:navigation-compose:2.5.3")
+
+    implementation("androidx.room:room-runtime:2.6.0")
+    implementation(libs.androidx.runtime.livedata)
+    kapt("androidx.room:room-compiler:2.6.0") // Para procesar anotaciones
+    implementation("androidx.room:room-ktx:2.6.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -60,10 +65,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

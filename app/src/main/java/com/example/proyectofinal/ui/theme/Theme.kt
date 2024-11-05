@@ -34,18 +34,24 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun PROYECTOFINALTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(), // Detecta el modo del sistema
+fun ProyectoFinalTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    // Dynamic color is available on Android 12+
+    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        darkColorScheme() // Tema oscuro
-    } else {
-        lightColorScheme() // Tema claro
+    val colorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
+
+        darkTheme -> DarkColorScheme
+        else -> LightColorScheme
     }
 
     MaterialTheme(
-        colorScheme = colors,
+        colorScheme = colorScheme,
         typography = Typography,
         content = content
     )
