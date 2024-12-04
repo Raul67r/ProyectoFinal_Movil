@@ -51,10 +51,18 @@ android {
 }
 
 dependencies {
-    implementation ("androidx.navigation:navigation-compose:2.5.3")
-
+    implementation("androidx.navigation:navigation-compose:2.5.3")
+    implementation("com.google.android.exoplayer:exoplayer:2.15.1")
+    implementation("com.google.accompanist:accompanist-permissions:0.36.0")
+    implementation("com.google.code.gson:gson:2.8.8")
+    // Coil. Para cargar imágenes de manera asíncrona
+    implementation("io.coil-kt:coil-compose:2.5.0")
     implementation("androidx.room:room-runtime:2.6.0")
     implementation(libs.androidx.runtime.livedata)
+
+    implementation(libs.androidx.adapters) {
+        exclude(group = "androidx.databinding", module = "databinding-adapters")
+    }
     kapt("androidx.room:room-compiler:2.6.0") // Para procesar anotaciones
     implementation("androidx.room:room-ktx:2.6.0")
     implementation(libs.androidx.core.ktx)

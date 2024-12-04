@@ -4,5 +4,6 @@
     <string name="titlebox">Title</string>
     <string name="description">Description</string>
     <string name="date">Date</string>
-    <string name="add_task">Add task</string>
+    <string name="add_task">Add tasks</string>
+    <string name="add_Note">Add Notes</string>
 </resources>
